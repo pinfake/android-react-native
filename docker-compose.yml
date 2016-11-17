@@ -1,0 +1,10 @@
+version: '2'
+services:
+  development:
+    image: "pinfake/android-react-native"
+    volumes:
+        - "/home/pin/docker:/root/devel"
+        - "androidemulatorx11_sdk:/opt/android-sdk-linux"
+volumes:
+    androidemulatorx11_sdk:
+        external: true

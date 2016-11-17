@@ -1,0 +1,1 @@
+docker run --privileged --net=host -v /home/pin/docker:/root -v androidemulatorx11_sdk:/opt/android-sdk-linux -it pinfake/android-react-native
