@@ -13,6 +13,6 @@ RUN dpkg --add-architecture i386 && \
 RUN npm install -g react-native-cli
 RUN cd /tmp && git clone https://github.com/facebook/watchman.git && cd watchman && \
     ./autogen.sh && ./configure && make && make install
-RUN touch /root/.gradle/gradle.properties && echo "org.gradle.daemon=true" >> /root/.gradle/gradle.properties
+RUN mkdir /root/.gradle && touch /root/.gradle/gradle.properties && echo "org.gradle.daemon=true" >> /root/.gradle/gradle.properties
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
