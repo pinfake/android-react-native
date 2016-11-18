@@ -1,6 +1,5 @@
 FROM openjdk:8-jdk
 MAINTAINER Pin <pinfake@hotmail.com>
-VOLUME /opt/android-sdk-linux
 ENV ANDROID_HOME="/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME="${ANDROID_HOME}"
 ENV PATH="${PATH}:${ANDROID_SDK_HOME}/tools:${ANDROID_SDK_HOME}/platform-tools"
