@@ -1,10 +1,23 @@
 version: '2'
 services:
+  emulator:
+    environment:
+        - DISPLAY
+    privileged: true
+    network_mode: "host"
+    image: "pinfake/android-emulator-x11:debian-jessie"
+    volumes:
+        - "/usr/lib:/usr/lib"
+        - "/tmp/.X11-unix:/tmp/.X11-unix"
+        - "sdk:/opt/android-sdk-linux"
   development:
+    depends_on:
+        - "emulator"
+    privileged: true
+    network_mode: "host"
     image: "pinfake/android-react-native"
     volumes:
-        - "/home/pin/docker:/root/devel"
-        - "androidemulatorx11_sdk:/opt/android-sdk-linux"
+        - "${HOME}:/root"
+        - "sdk:/opt/android-sdk-linux"
 volumes:
-    androidemulatorx11_sdk:
-        external: true
+    sdk:
