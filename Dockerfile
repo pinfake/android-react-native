@@ -14,6 +14,8 @@ RUN dpkg --add-architecture i386 && \
 RUN npm install -g react-native-cli
 RUN cd /tmp && git clone https://github.com/facebook/watchman.git && cd watchman && \
     ./autogen.sh && ./configure && make && make install
-#RUN sysctl fs.inotify.max_user_watches=524288
+RUN curl -s https://get.sdkman.io | bash && source "/root/.sdkman/bin/sdkman_init.sh"
+RUN sdk install gradle 2.4
+RUN gradle --daemon
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]

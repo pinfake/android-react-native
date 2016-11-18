@@ -17,7 +17,7 @@ services:
     network_mode: "host"
     image: "pinfake/android-react-native"
     volumes:
-        - "${HOME}:/root"
+        - "${HOME}:/root/home"
         - "sdk:/opt/android-sdk-linux"
 volumes:
     sdk:
