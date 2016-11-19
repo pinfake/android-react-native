@@ -7,11 +7,13 @@ ENV TERM=xterm
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash -
 RUN dpkg --add-architecture i386 && \
     curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
-    apt-get install -y nodejs libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 build-essential python-dev autoconf && \
+    apt-get install -y nodejs libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 build-essential \
+    python-dev autoconf dtach vim tmux && \
     apt-get clean
 RUN npm install -g react-native-cli
 RUN cd /tmp && git clone https://github.com/facebook/watchman.git && cd watchman && \
-    ./autogen.sh && ./configure && make && make install
+    git checkout v4.1.0 && ./autogen.sh && ./configure && make && make install && rm -rf /tmp/watchman
 RUN mkdir /root/.gradle && touch /root/.gradle/gradle.properties && echo "org.gradle.daemon=true" >> /root/.gradle/gradle.properties
+RUN echo "export PATH=${PATH}" > /root/.profile
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
