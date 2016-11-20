@@ -9,8 +9,6 @@ services:
     volumes:
         - "/usr/lib:/usr/lib"
         - "/tmp/.X11-unix:/tmp/.X11-unix"
-        - "sdk:/opt/android-sdk-linux"
-        - "/etc/localtime:/etc/localtime:ro"
   development:
     depends_on:
         - "emulator"
@@ -19,7 +17,5 @@ services:
     image: "pinfake/android-react-native"
     volumes:
         - "${HOME}:/root/u"
-        - "sdk:/opt/android-sdk-linux"
-        - "/etc/localtime:/etc/localtime:ro"
 volumes:
     sdk:
