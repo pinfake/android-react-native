@@ -17,5 +17,3 @@ services:
     image: "pinfake/android-react-native"
     volumes:
         - "${HOME}:/root/u"
-volumes:
-    sdk:
