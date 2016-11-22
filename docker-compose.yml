@@ -11,12 +11,11 @@ services:
         - "/tmp/.X11-unix:/tmp/.X11-unix"
         - "emudata:/opt/android-sdk-linux/.android"
   development:
-    depends_on:
-        - "emulator"
     privileged: true
     network_mode: "host"
     image: "pinfake/android-react-native"
     volumes:
+        - "/dev/bus/usb:/dev/bus/usb"
         - "devdata:/root"
         - "${HOME}:/userdata"
 volumes:
