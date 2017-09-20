@@ -16,7 +16,7 @@ RUN mkdir /root/.gradle && touch /root/.gradle/gradle.properties && echo "org.gr
 RUN cd /tmp && \
     curl -O https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && \
     cd /opt && tar xzf /tmp/*.tgz && rm /tmp/*.tgz
-RUN echo "y" | android update sdk --no-ui --force -a --filter extra-android-m2repository,extra-android-support,extra-google-m2repository,platform-tools,android-23,build-tools-23.0.1
+RUN echo "y" | android update sdk --no-ui --force -a --filter extra-android-m2repository,extra-android-support,extra-google-m2repository,platform-tools,android-25,build-tools-25
 RUN echo "export PATH=${PATH}" > /root/.profile
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
